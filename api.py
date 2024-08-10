@@ -47,7 +47,7 @@ origins = ["*"]
 async def generate_and_execute(data: Details):
 
     # convert pydantic to dict
-    data_dict = data.model_dump()
+    data_dict = data.dict()
 
     # create a dataframe from the dicitonary
     df = pd.DataFrame([data_dict])  # Create a DataFrame from the dictionary
