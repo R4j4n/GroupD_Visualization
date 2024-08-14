@@ -57,6 +57,8 @@ async def generate_and_execute(data: Details):
     # convert pydantic to dict
     data_dict = data.dict()
 
+    data_dict = {key: float(value) for key, value in data_dict.items()}
+
     # create a dataframe from the dicitonary
     df = pd.DataFrame([data_dict])  # Create a DataFrame from the dictionary
 
@@ -75,12 +77,15 @@ async def generate_and_execute(data: Details):
         true_probability = opt.cpu().float().item()
 
         true_class = (opt > 0.5).float().item()
+        print(true_probability)
 
         prob_dist = []
-        if int(true_class) == 1:
+        if int(true_class) == float(1):
             prob_dist.append([1 - true_probability, true_probability])
         else:
-            prob_dist.append([true_probability, 1 - true_probability])
+            prob_dist.append(
+                sorted([1 - true_probability, true_probability], reverse=True)
+            )
 
         return {
             "probability": prob_dist,
