@@ -12,20 +12,20 @@ const montserrat_subrayada = Montserrat_Alternates({ subsets: ["latin"], weight:
 
 export default function Home() {
   const [formData, setFormData] = useState({
-    first_language: 3,
-    funding: 4,
+    first_language: 1,
+    funding: 2,
     school: 6,
-    fast_track: 1,
+    fast_track: 2,
     coop: 2,
-    residency: 2,
+    residency: 1,
     gender: 2,
     prev_education: 1,
-    age_group: 3,
-    english_grade: 7,
-    first_term_gpa: 2.5,
-    second_term_gpa: 2,
-    high_school_average_mark: 73.28,
-    math_score: 34.24,
+    age_group: 1,
+    english_grade: 9,
+    first_term_gpa: 1.46,
+    second_term_gpa: 0.0,
+    high_school_average_mark: 81.0,
+    math_score: 17.0,
   });
 
   const [apiResult, setApiResult] = useState(null);
