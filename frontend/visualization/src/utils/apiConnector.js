@@ -1,6 +1,5 @@
 export const predictFirstYearPersistence = async (formData) => {
     try {
-      console.log("Form data being sent:", JSON.stringify(formData));
       const response = await fetch("http://0.0.0.0:2222/predict/firstyearpersistence/", {
         method: "POST",
         headers:{"Content-Type": "application/json"},
